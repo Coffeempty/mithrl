@@ -1,0 +1,23 @@
+train:
+  use_wandb: true
+  model_name: Qwen/Qwen2.5-3B
+  adapter_path: ./artifacts/gsm8k-adapter-02
+  wandb_project_name: mithrl
+  wandb_run_name: gsm8k-drgrpo
+  train_microbatch_size:  12
+  n_steps: 1000
+  n_iters: 4
+  lr: 1e-5
+
+env:
+  factory: environments.gsm8k:GSM8KEnvironmentFactory
+  kwargs: {}
+
+rollout:
+  n_rollouts: 32
+  max_parallel_rollouts: 16
+  rollout_timeout: 600.0
+
+algo:
+  n_groups: 4
+  

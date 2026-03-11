@@ -1,0 +1,21 @@
+train:
+  use_wandb: true
+  model_name: Qwen/Qwen2.5-3B
+  adapter_path: ./artifacts/simple-math-adapter
+  wandb_project_name: mithrl
+  wandb_run_name: simple-math
+  n_steps: 1000
+  n_iters: 4
+  lr: 1e-5
+
+env:
+  factory: environments.simple_math:SimpleMathEnvironmentFactory
+  kwargs: {}
+
+rollout:
+  n_rollouts: 16
+  max_parallel_rollouts: 16
+  rollout_timeout: 600.0
+
+algo:
+  n_groups: 4
