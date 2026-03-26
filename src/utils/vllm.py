@@ -44,6 +44,8 @@ def _unload_lora(adapter_name: str):
         },
         timeout=60,
     )
+    if resp.status_code == 404:
+        return False
     resp.raise_for_status()
     return resp.status_code == 200
 
